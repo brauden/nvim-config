@@ -5,11 +5,13 @@ M.base46 = {
   changed_themes = {
     onedark = {
       base_16 = {
-        base0B = "#60778a",
+        base0B = "#60778a", -- strings
         base0C = "#dbc202",
-        base0A = "#dbc202",
+        base0A = "#dbc202", -- classes
         base08 = "#c8ccd4",
         base00 = "#282936",
+        base0D = "#C678DD", -- purple for functions/methods
+        base0E = "#D19A66", -- keywords
       },
       polish_hl = {
         treesitter = {
