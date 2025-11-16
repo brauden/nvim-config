@@ -4,7 +4,7 @@ local map = vim.keymap.set
 
 -- gitsigns
 map("n", "<leader>gsh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
-map("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Stage hunk" })
+map("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Gitsign blame" })
 map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
 map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" })
 map("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" })
@@ -39,6 +39,9 @@ map("n", "<leader>ts", "<cmd>set invspell<cr>", { desc = "Toggle spell" })
 
 -- pandoc
 map("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>", { desc = "Format MD table" })
+
+-- TSContext
+map("n", "<leader>tc", "<cmd>TSContext toggle <CR>", { desc = "Toggle TSContext" })
 
 local nomap = vim.keymap.del
 
