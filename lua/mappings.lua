@@ -1,0 +1,67 @@
+require "nvchad.mappings"
+
+local map = vim.keymap.set
+
+-- gitsigns
+map("n", "<leader>gsh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
+map("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Stage hunk" })
+map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" })
+map("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" })
+map("n", "<leader>ghn", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next Hunk" })
+map("n", "<leader>ghp", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous Hunk" })
+
+-- fugitive
+map("n", "<leader>gg", "<cmd>Git<CR>", { desc = "Git status" })
+map("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git vsplit" })
+map("n", "<leader>gvd", "<cmd>Gvdiffsplit!<CR>", { desc = "Git three vsplit" })
+map("n", "<leader>gl", "<cmd>0Gllog<CR>", { desc = "Git history of a file" })
+
+-- telescope
+map("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" })
+map("n", "<leader>fgt", "<cmd>Telescope git_status <CR>", { desc = "Git status" })
+map("n", "<leader>fgs", "<cmd>Telescope git_stash <CR>", { desc = "Git stash" })
+map("n", "<leader>fgb", "<cmd>Telescope git_branches <CR>", { desc = "Git branches" })
+map("n", "<leader>fm", "<cmd>Telescope marks <CR>", { desc = "Find marks" })
+map("n", "<leader>fh", "<cmd>Telescope command_history <CR>", { desc = "Command history" })
+map("n", "<leader>fj", "<cmd>Telescope jumplist <CR>", { desc = "Jumplist" })
+map("n", "<leader>fd", "<cmd>Telescope diagnostics <CR>", { desc = "Diagnostics" })
+
+-- zenmode
+map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle Zen Mode" })
+
+-- dignostics
+map("n", "<leader>ldi", "<cmd> lua vim.diagnostic.config{virtual_text = true}<CR>", { desc = "Turn on diagnostic" })
+map("n", "<leader>ldo", "<cmd> lua vim.diagnostic.config{virtual_text = false}<CR>", { desc = "Turn off diagnostic" })
+
+-- spell
+map("n", "<leader>ts", "<cmd>set invspell<cr>", { desc = "Toggle spell" })
+
+-- pandoc
+map("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>", { desc = "Format MD table" })
+
+local nomap = vim.keymap.del
+
+-- remove default keymaps
+nomap("n", "<leader>h")
+nomap("n", "<leader>v")
+nomap("n", "<leader>cm")
+nomap("n", "<leader>fm")
+nomap("n", "<leader>gt")
+nomap("n", "<leader>pt")
+nomap("i", "<C-h>")
+nomap("i", "<C-j>")
+nomap("i", "<C-l>")
+nomap("i", "<C-k>")
+
+-- switch languages
+map("n", "<leader>rr", "<cmd>set keymap=russian-jcukenwin<CR>", { desc = "Russian Keyboard" })
+map("n", "<leader>rk", "<cmd>set keymap=kazakh-jcuken<CR>", { desc = "Kazakh Keyboard" })
+map("n", "<leader>re", '<cmd>set keymap=""<CR>', { desc = "English Keyboard" })
+
+-- tmux-mapping
+vim.keymap.set("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", { silent = true })
+vim.keymap.set("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", { silent = true })
+vim.keymap.set("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { silent = true })
+vim.keymap.set("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", { silent = true })
+vim.keymap.set("n", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { silent = true })
