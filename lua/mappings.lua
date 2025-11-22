@@ -26,6 +26,28 @@ map("n", "<leader>fm", "<cmd>Telescope marks <CR>", { desc = "Find marks" })
 map("n", "<leader>fh", "<cmd>Telescope command_history <CR>", { desc = "Command history" })
 map("n", "<leader>fj", "<cmd>Telescope jumplist <CR>", { desc = "Jumplist" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics <CR>", { desc = "Diagnostics" })
+map("n", "<leader>fq", function()
+  local dirs_input = vim.fn.input "Directories (space-separated): "
+  local filetypes_input = vim.fn.input "Filetypes/extensions (comma-separated, e.g. py,js,lua): "
+
+  local dirs = vim.split(dirs_input, " ")
+  local filetypes = vim.split(filetypes_input, ",")
+
+  require("telescope.builtin").live_grep {
+    search_dirs = dirs,
+    additional_args = function(opts)
+      local args = {}
+      for _, ft in ipairs(filetypes) do
+        ft = vim.trim(ft)
+        if ft ~= "" then
+          table.insert(args, "--glob")
+          table.insert(args, "*." .. ft)
+        end
+      end
+      return args
+    end,
+  }
+end, { desc = "Live grep by dirs + filetypes" })
 
 -- zenmode
 map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle Zen Mode" })
