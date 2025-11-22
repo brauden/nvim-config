@@ -18,6 +18,7 @@ map("n", "<leader>gvd", "<cmd>Gvdiffsplit!<CR>", { desc = "Git three vsplit" })
 map("n", "<leader>gl", "<cmd>0Gllog<CR>", { desc = "Git history of a file" })
 
 -- telescope
+map("n", "<leader>fs", "<cmd>Telescope spell_suggest<CR>", { desc = "Spell suggest" })
 map("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" })
 map("n", "<leader>fgt", "<cmd>Telescope git_status <CR>", { desc = "Git status" })
 map("n", "<leader>fgs", "<cmd>Telescope git_stash <CR>", { desc = "Git stash" })
