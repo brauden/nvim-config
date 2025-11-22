@@ -102,4 +102,11 @@ return {
     "tpope/vim-fugitive",
     lazy = false,
   },
+  {
+    "gelguy/wilder.nvim",
+    event = "CmdlineEnter",
+    config = function()
+      require "configs.wilder"
+    end,
+  },
 }
