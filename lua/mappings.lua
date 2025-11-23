@@ -8,8 +8,8 @@ map("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Gitsign blame" })
 map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
 map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" })
 map("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" })
-map("n", "<leader>ghn", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next Hunk" })
-map("n", "<leader>ghp", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous Hunk" })
+map("n", "]g", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next Hunk" })
+map("n", "[g", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous Hunk" })
 
 -- fugitive
 map("n", "<leader>gg", "<cmd>Git<CR>", { desc = "Git status" })
@@ -19,8 +19,8 @@ map("n", "<leader>gl", "<cmd>0Gllog<CR>", { desc = "Git history of a file" })
 
 -- telescope
 map("n", "<leader>fs", "<cmd>Telescope spell_suggest<CR>", { desc = "Spell suggest" })
-map("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" })
-map("n", "<leader>fgt", "<cmd>Telescope git_status <CR>", { desc = "Git status" })
+map("n", "<leader>fgc", "<cmd>FzfLua git_commits<CR>", { desc = "Git commits" })
+map("n", "<leader>fgt", "<cmd>FzfLua git_status <CR>", { desc = "Git status" })
 map("n", "<leader>fgs", "<cmd>Telescope git_stash <CR>", { desc = "Git stash" })
 map("n", "<leader>fgb", "<cmd>Telescope git_branches <CR>", { desc = "Git branches" })
 map("n", "<leader>fm", "<cmd>Telescope marks <CR>", { desc = "Find marks" })

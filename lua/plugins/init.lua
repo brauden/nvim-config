@@ -109,4 +109,13 @@ return {
       require "configs.wilder"
     end,
   },
+  {
+    "ibhagwan/fzf-lua",
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    opts = {},
+    config = function()
+      require "configs.fzf-lua"
+    end,
+  },
 }
