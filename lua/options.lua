@@ -9,3 +9,4 @@ vim.opt.spelllang = { "en_us" }
 vim.opt.langmap =
   "ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
 vim.opt.foldmethod = "syntax"
+vim.opt.wildignore = { "__pycache__" }
