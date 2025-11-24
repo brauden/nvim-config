@@ -28,25 +28,27 @@ local M = {
   injections = {
     enable = true,
   },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = "<leader>ss", -- set to `false` to disable one of the mappings
-      node_incremental = "<leader>si",
-      scope_incremental = "<leader>sc",
-      node_decremental = "<leader>sd",
-    },
-  },
+  -- incremental_selection = {
+  --   enable = true,
+  --   keymaps = {
+  --     init_selection = "<leader>ss", -- set to `false` to disable one of the mappings
+  --     node_incremental = "<leader>si",
+  --     scope_incremental = "<leader>sc",
+  --     node_decremental = "<leader>sd",
+  --   },
+  -- },
   textobjects = {
     select = {
       enable = true,
       lookahead = true,
       keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
+        ["af"] = { query = "@function.outer", desc = "Select outer part of a function" },
+        ["if"] = { query = "@function.inner", desc = "Select inner part of a function" },
+        ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
         ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+        ["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
+        ["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
       },
       selection_modes = {
         ["@parameter.outer"] = "v", -- charwise
@@ -58,10 +60,12 @@ local M = {
     swap = {
       enable = true,
       swap_next = {
-        ["<leader>a"] = "@parameter.inner",
+        ["<leader>np"] = "@parameter.inner",
+        ["<leader>nf"] = "@function.outer",
       },
       swap_previous = {
-        ["<leader>A"] = "@parameter.inner",
+        ["<leader>pp"] = "@parameter.inner",
+        ["<leader>pf"] = "@function.outer",
       },
     },
     move = {
@@ -69,10 +73,8 @@ local M = {
       set_jumps = true, -- whether to set jumps in the jumplist
       goto_next_start = {
         ["]f"] = "@function.outer",
-        ["]]"] = { query = "@class.outer", desc = "Next class start" },
-        ["]l"] = "@loop.outer",
-        ["]p"] = "@parameter.inner",
-        ["]b"] = "@block.inner",
+        ["]]"] = "@class.outer",
+        ["<leader>pn"] = "@parameter.inner",
         ["]r"] = "@return.outer",
         ["]w"] = "@call.outer",
       },
@@ -80,14 +82,11 @@ local M = {
         ["]m"] = "@function.outer",
         ["]["] = "@class.outer",
         ["]a"] = "@assignment.lhs",
-        ["]B"] = "@block.inner",
       },
       goto_previous_start = {
         ["[f"] = "@function.outer",
         ["[["] = "@class.outer",
-        ["[p"] = "@parameter.inner",
-        ["[l"] = "@loop.outer",
-        ["[b"] = "@block.inner",
+        ["<leader>pp"] = "@parameter.inner",
         ["[r"] = "@return.outer",
         ["[w"] = "@call.outer",
       },
@@ -95,7 +94,6 @@ local M = {
         ["[m"] = "@function.outer",
         ["[]"] = "@class.outer",
         ["[a"] = "@assignment.lhs",
-        ["[B"] = "@block.inner",
       },
       goto_next = {},
       goto_previous = {},
