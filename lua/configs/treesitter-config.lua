@@ -28,15 +28,6 @@ local M = {
   injections = {
     enable = true,
   },
-  -- incremental_selection = {
-  --   enable = true,
-  --   keymaps = {
-  --     init_selection = "<leader>ss", -- set to `false` to disable one of the mappings
-  --     node_incremental = "<leader>si",
-  --     scope_incremental = "<leader>sc",
-  --     node_decremental = "<leader>sd",
-  --   },
-  -- },
   textobjects = {
     select = {
       enable = true,
@@ -60,12 +51,12 @@ local M = {
     swap = {
       enable = true,
       swap_next = {
-        ["<leader>np"] = "@parameter.inner",
         ["<leader>nf"] = "@function.outer",
+        ["<leader>nc"] = "@class.outer",
       },
       swap_previous = {
-        ["<leader>pp"] = "@parameter.inner",
         ["<leader>pf"] = "@function.outer",
+        ["<leader>pc"] = "@class.outer",
       },
     },
     move = {
