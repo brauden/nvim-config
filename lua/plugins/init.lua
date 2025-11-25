@@ -118,4 +118,8 @@ return {
       require "configs.fzf-lua"
     end,
   },
+  {
+    "jecaro/fugitive-difftool.nvim",
+    lazy = false,
+  },
 }

@@ -2,6 +2,16 @@ require "nvchad.mappings"
 
 local map = vim.keymap.set
 
+vim.api.nvim_create_user_command("Gcfir", require("fugitive-difftool").git_cfir, {})
+-- To the last
+vim.api.nvim_create_user_command("Gcla", require("fugitive-difftool").git_cla, {})
+-- To the next
+vim.api.nvim_create_user_command("Gcn", require("fugitive-difftool").git_cn, {})
+-- To the previous
+vim.api.nvim_create_user_command("Gcp", require("fugitive-difftool").git_cp, {})
+-- To the currently selected
+vim.api.nvim_create_user_command("Gcc", require("fugitive-difftool").git_cc, {})
+
 -- gitsigns
 map("n", "<leader>gsh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
 map("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Gitsign blame" })
