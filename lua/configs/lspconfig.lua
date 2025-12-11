@@ -7,6 +7,7 @@ vim.lsp.config("*", { on_attach = on_attach, capabilities = capabilities, on_ini
 
 vim.lsp.enable "lua_ls"
 vim.lsp.enable "pyright"
+vim.lsp.enable "clangd"
 
 vim.diagnostic.config {
   virtual_text = false,
