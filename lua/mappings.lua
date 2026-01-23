@@ -75,6 +75,12 @@ map("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>", { desc = "Format
 
 -- TSContext
 map("n", "<leader>tc", "<cmd>TSContext toggle <CR>", { desc = "Toggle TSContext" })
+map(
+  "n",
+  "<leader>th",
+  "<cmd>source ~/.config/nvim/after/plugin/diff_highlight.lua <CR>",
+  { desc = "Turn on diff syntax" }
+)
 
 local nomap = vim.keymap.del
 
