@@ -11,7 +11,7 @@ fzf.setup {
       actions = {
         ["enter"] = fzf.actions.git_checkout,
         -- remove `exec_silent` or set to `false` to exit after yank
-        ["ctrl-y"] = { fn = fzf.actions.git_yank_commit, exec_silent = true },
+        ["ctrl-y"] = { fn = fzf.actions.git_yank_commit, exec_silent = false },
       },
     },
   },
