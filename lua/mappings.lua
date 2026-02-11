@@ -109,6 +109,6 @@ map("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { silent = true })
 map("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", { silent = true })
 map("n", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { silent = true })
 
-map("t", "<C-Space>", [[<C-\><C-n>]])
+map("t", "<C-j>", [[<C-\><C-n>]])
 map("t", "<C-h>", [[<Cmd>wincmd h<CR>]])
 map("t", "<C-l>", [[<Cmd>wincmd l<CR>]])
