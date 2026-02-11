@@ -103,8 +103,12 @@ map("n", "<leader>rk", "<cmd>set keymap=kazakh-jcuken<CR>", { desc = "Kazakh Key
 map("n", "<leader>re", '<cmd>set keymap=""<CR>', { desc = "English Keyboard" })
 
 -- tmux-mapping
-vim.keymap.set("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", { silent = true })
-vim.keymap.set("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", { silent = true })
-vim.keymap.set("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { silent = true })
-vim.keymap.set("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", { silent = true })
-vim.keymap.set("n", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { silent = true })
+map("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", { silent = true })
+map("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", { silent = true })
+map("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { silent = true })
+map("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", { silent = true })
+map("n", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { silent = true })
+
+map("t", "<C-Space>", [[<C-\><C-n>]])
+map("t", "<C-h>", [[<Cmd>wincmd h<CR>]])
+map("t", "<C-l>", [[<Cmd>wincmd l<CR>]])
