@@ -1,5 +1,14 @@
 require "nvchad.mappings"
 
+local telescopebuiltin = require "telescope.builtin"
+
+-- Define a function to grep for the word under the cursor
+local function grep_cword()
+  -- <cword> expands to the word under the cursor
+  local word = vim.fn.expand "<cword>"
+  telescopebuiltin.grep_string { search = word }
+end
+
 local map = vim.keymap.set
 
 vim.api.nvim_create_user_command("Gcfir", require("fugitive-difftool").git_cfir, {})
@@ -28,7 +37,7 @@ map("n", "<leader>gvd", "<cmd>Gvdiffsplit!<CR>", { desc = "Git three vsplit" })
 map("n", "<leader>gl", "<cmd>0Gllog<CR>", { desc = "Git history of a file" })
 
 -- telescope
-map("n", "<leader>fs", "<cmd>Telescope spell_suggest<CR>", { desc = "Spell suggest" })
+map("n", "<leader>fs", grep_cword, { desc = "Spell suggest" })
 map("n", "<leader>fgc", "<cmd>FzfLua git_commits<CR>", { desc = "Git commits" })
 map("n", "<leader>fgt", "<cmd>FzfLua git_status <CR>", { desc = "Git status" })
 map("n", "<leader>fgs", "<cmd>Telescope git_stash <CR>", { desc = "Git stash" })
