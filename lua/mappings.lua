@@ -105,6 +105,7 @@ nomap("i", "<C-j>")
 nomap("i", "<C-l>")
 nomap("i", "<C-k>")
 nomap("n", "<leader>n")
+nomap("n", "<Tab>")
 
 -- switch languages
 map("n", "<leader>rr", "<cmd>set keymap=russian-jcukenwin<CR>", { desc = "Russian Keyboard" })
