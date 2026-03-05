@@ -37,16 +37,28 @@ return {
   },
 
   {
-    "nvim-treesitter/nvim-treesitter-textobjects",
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    build = ":TSUpdate",
+    lazy = false,
+    opts = false,
+    config = function()
+      pcall(function()
+        dofile(vim.g.base46_cache .. "syntax")
+        dofile(vim.g.base46_cache .. "treesitter")
+      end)
+      require "configs.treesitter-config"
+    end,
   },
 
   {
-    "nvim-treesitter/nvim-treesitter",
-    branch = "master",
-    build = "TSUpdate",
+    "nvim-treesitter/nvim-treesitter-textobjects",
+    branch = "main",
     lazy = false,
-    opts = require "configs.treesitter-config",
-    dependencies = { "nvim-treesitter-textobjects" },
+    dependencies = { "nvim-treesitter" },
+    config = function()
+      require "configs.treesitter-textobjects"
+    end,
   },
   {
     "folke/zen-mode.nvim",
