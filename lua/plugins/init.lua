@@ -42,6 +42,9 @@ return {
 
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "master",
+    build = "TSUpdate",
+    lazy = false,
     opts = require "configs.treesitter-config",
     dependencies = { "nvim-treesitter-textobjects" },
   },

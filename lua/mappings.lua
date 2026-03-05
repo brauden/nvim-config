@@ -122,3 +122,6 @@ map("n", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { silent = true })
 map("t", "<C-j>", [[<C-\><C-n>]])
 map("t", "<C-h>", [[<Cmd>wincmd h<CR>]])
 map("t", "<C-l>", [[<Cmd>wincmd l<CR>]])
+
+map("n", "<leader>nn", "<cmd>bnext<CR>", { desc = "Next buffer" })
+map("n", "<leader>np", "<cmd>bprev<CR>", { desc = "Previous buffer" })
