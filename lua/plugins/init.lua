@@ -1,4 +1,3 @@
-local toggle_key = "<C-]>"
 return {
   {
     "stevearc/conform.nvim",
@@ -30,7 +29,7 @@ return {
         "clangd",
         "clang-format",
         "codelldb",
-        "ruff-lsp",
+        "ruff",
         "gopls",
       },
     },
@@ -142,80 +141,14 @@ return {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
     config = true,
-    keys = {
-      { "<leader>a", nil, desc = "AI/Claude Code" },
-      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
-      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
-      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
-      { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
-      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
-      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
-      { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
-      {
-        "<leader>as",
-        "<cmd>ClaudeCodeTreeAdd<cr>",
-        desc = "Add file",
-        ft = { "NvimTree", "neo-tree", "oil", "minifiles", "netrw" },
-      },
-      -- Diff management
-      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
-      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
-      { toggle_key, "<cmd>ClaudeCodeFocus<cr>", desc = "Claude Code", mode = { "n", "x" } },
-    },
-    opts = {
-      terminal = {
-        ---@module "snacks"
-        ---@type snacks.win.Config|{}
-        snacks_win_opts = {
-          position = "float",
-          width = 0.9,
-          height = 0.9,
-          keys = {
-            claude_hide = {
-              toggle_key,
-              function(self)
-                self:hide()
-              end,
-              mode = "t",
-              desc = "Hide",
-            },
-          },
-        },
-      },
-    },
+    keys = require("configs.claudecode").keys,
+    opts = require("configs.claudecode").opts,
   },
   {
     "Vigemus/iron.nvim",
     ft = { "python" },
     config = function()
-      local iron = require "iron.core"
-      iron.setup {
-        config = {
-          -- Where the REPL opens
-          repl_open_cmd = require("iron.view").split.horizontal.botright(15),
-          repl_definition = {
-            python = {
-              command = { "ipython", "--no-autoindent" },
-              format = require("iron.fts.common").bracketed_paste,
-            },
-          },
-        },
-
-        keymaps = {
-          toggle_repl = "<space>rr",
-          send_motion = "<leader>sc",
-          visual_send = "<leader>sc",
-          send_file = "<leader>sf",
-          send_line = "<leader>sl",
-          send_until_cursor = "<leader>su",
-          cr = "<leader>s<cr>",
-          interrupt = "<leader>s<leader>",
-          exit = "<leader>sq",
-          clear = "<leader>cl",
-        },
-
-        ignore_blank_lines = true,
-      }
+      require "configs.iron"
     end,
   },
 }

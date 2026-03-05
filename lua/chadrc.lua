@@ -40,10 +40,10 @@ M.ui = {
 
 M.term = {
   float = {
-    row = 0.2,
-    col = 0.2,
-    width = 0.6,
-    height = 0.5,
+    row = 0.1,
+    col = 0.1,
+    width = 0.8,
+    height = 0.7,
     border = "single",
   },
 }
