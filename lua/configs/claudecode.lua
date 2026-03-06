@@ -34,6 +34,13 @@ M.opts = {
         claude_hide = {
           toggle_key,
           function(self)
+            local buf = self.buf
+            if buf and vim.api.nvim_buf_is_valid(buf) then
+              local chan = vim.bo[buf].channel
+              if chan and chan > 0 then
+                vim.api.nvim_chan_send(chan, "\x15") -- Ctrl-U: clear current input line
+              end
+            end
             self:hide()
           end,
           mode = "t",
