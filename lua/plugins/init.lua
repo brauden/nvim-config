@@ -95,6 +95,17 @@ return {
     },
     opts = require "configs.obsidian",
   },
+  {
+    "selimacerbas/markdown-preview.nvim",
+    dependencies = { "selimacerbas/live-server.nvim" },
+    config = function()
+      require("markdown_preview").setup {
+        port = 8421,
+        open_browser = true,
+        debounce_ms = 300,
+      }
+    end,
+  },
 
   {
     "nvim-treesitter/nvim-treesitter-context",
@@ -103,15 +114,6 @@ return {
   {
     "christoomey/vim-tmux-navigator",
     lazy = false,
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    build = "cd app && npm install",
-    init = function()
-      vim.g.mkdp_filetypes = { "markdown" }
-    end,
-    ft = { "markdown" },
   },
   {
     "tpope/vim-fugitive",
