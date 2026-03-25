@@ -42,9 +42,15 @@ map("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits"
 map("n", "<leader>fgt", "<cmd>Telescope git_status<CR>", { desc = "Git status" })
 map("n", "<leader>fgs", "<cmd>Telescope git_stash<CR>", { desc = "Git stash" })
 map("n", "<leader>fgb", "<cmd>Telescope git_branches<CR>", { desc = "Git branches" })
-map("n", "<leader>fgl", "<cmd>Telescope advanced_git_search search_log_content<CR>", { desc = "Search git log content" })
+map(
+  "n",
+  "<leader>fgl",
+  "<cmd>Telescope advanced_git_search search_log_content<CR>",
+  { desc = "Search git log content" }
+)
 map("n", "<leader>fgd", "<cmd>Telescope advanced_git_search diff_commit_file<CR>", { desc = "Diff commit file" })
 map("n", "<leader>fge", "<cmd>Telescope advanced_git_search diff_branch_file<CR>", { desc = "Diff branch file" })
+map("n", "<leader>fu", "<cmd>Telescope zoxide list<CR>", { desc = "Zoxide directories" })
 map("n", "<leader>fh", "<cmd>Telescope command_history <CR>", { desc = "Command history" })
 map("n", "<leader>fj", "<cmd>Telescope jumplist <CR>", { desc = "Jumplist" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics <CR>", { desc = "Diagnostics" })

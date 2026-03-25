@@ -137,7 +137,12 @@ return {
     config = function()
       require "configs.telescope"
       require("telescope").load_extension "advanced_git_search"
+      require("telescope").load_extension "zoxide"
     end,
+  },
+  {
+    "jvgrootveld/telescope-zoxide",
+    dependencies = { "nvim-telescope/telescope.nvim" },
   },
   {
     "jecaro/fugitive-difftool.nvim",
