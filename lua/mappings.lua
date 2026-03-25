@@ -22,9 +22,9 @@ vim.api.nvim_create_user_command("Gcp", require("fugitive-difftool").git_cp, {})
 vim.api.nvim_create_user_command("Gcc", require("fugitive-difftool").git_cc, {})
 
 -- gitsigns
-map("n", "<leader>gsh", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
-map("n", "<leader>gb", "<cmd>Gitsigns blame<CR>", { desc = "Gitsign blame" })
-map("n", "<leader>grh", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
+map("n", "<leader>ghs", "<cmd>Gitsigns stage_hunk<CR>", { desc = "Stage hunk" })
+map("n", "<leader>gbl", "<cmd>Gitsigns blame<CR>", { desc = "Gitsign blame" })
+map("n", "<leader>ghr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
 map("n", "<leader>gS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" })
 map("n", "<leader>gR", "<cmd>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" })
 map("n", "]g", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next Hunk" })
@@ -34,48 +34,25 @@ map("n", "[g", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous Hunk" })
 map("n", "<leader>gg", "<cmd>Git<CR>", { desc = "Git status" })
 map("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git vsplit" })
 map("n", "<leader>gvd", "<cmd>Gvdiffsplit!<CR>", { desc = "Git three vsplit" })
-map("n", "<leader>gl", "<cmd>DiffviewFileHistory %<CR>", { desc = "Git history of a file" })
+map("n", "<leader>gld", "<cmd>DiffviewFileHistory %<CR>", { desc = "Git history of a file" })
 
 -- telescope
-map("n", "<leader>fs", grep_cword, { desc = "Search word under cursor" })
-map("n", "<leader>fgc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" })
-map("n", "<leader>fgt", "<cmd>Telescope git_status<CR>", { desc = "Git status" })
-map("n", "<leader>fgs", "<cmd>Telescope git_stash<CR>", { desc = "Git stash" })
-map("n", "<leader>fgb", "<cmd>Telescope git_branches<CR>", { desc = "Git branches" })
+map("n", "<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Git commits" })
+map("n", "<leader>gs", "<cmd>Telescope git_stash<CR>", { desc = "Git stash" })
+map("n", "<leader>gbb", "<cmd>Telescope git_branches<CR>", { desc = "Git branches" })
 map(
   "n",
-  "<leader>fgl",
+  "<leader>gll",
   "<cmd>Telescope advanced_git_search search_log_content<CR>",
   { desc = "Search git log content" }
 )
-map("n", "<leader>fgd", "<cmd>Telescope advanced_git_search diff_commit_file<CR>", { desc = "Diff commit file" })
-map("n", "<leader>fge", "<cmd>Telescope advanced_git_search diff_branch_file<CR>", { desc = "Diff branch file" })
+map("n", "<leader>glf", "<cmd>Telescope advanced_git_search diff_commit_file<CR>", { desc = "Diff commit file" })
+map("n", "<leader>glb", "<cmd>Telescope advanced_git_search diff_branch_file<CR>", { desc = "Diff branch file" })
+map("n", "<leader>fs", grep_cword, { desc = "Search word under cursor" })
 map("n", "<leader>fu", "<cmd>Telescope zoxide list<CR>", { desc = "Zoxide directories" })
 map("n", "<leader>fh", "<cmd>Telescope command_history <CR>", { desc = "Command history" })
 map("n", "<leader>fj", "<cmd>Telescope jumplist <CR>", { desc = "Jumplist" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics <CR>", { desc = "Diagnostics" })
-map("n", "<leader>fq", function()
-  local dirs_input = vim.fn.input "Directories (space-separated): "
-  local filetypes_input = vim.fn.input "Filetypes/extensions (comma-separated, e.g. py,js,lua): "
-
-  local dirs = vim.split(dirs_input, " ")
-  local filetypes = vim.split(filetypes_input, ",")
-
-  require("telescope.builtin").live_grep {
-    search_dirs = dirs,
-    additional_args = function(opts)
-      local args = {}
-      for _, ft in ipairs(filetypes) do
-        ft = vim.trim(ft)
-        if ft ~= "" then
-          table.insert(args, "--glob")
-          table.insert(args, "*." .. ft)
-        end
-      end
-      return args
-    end,
-  }
-end, { desc = "Live grep by dirs + filetypes" })
 
 -- zenmode
 map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle Zen Mode" })
