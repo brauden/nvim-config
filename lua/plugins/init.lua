@@ -128,12 +128,23 @@ return {
     end,
   },
   {
-    "ibhagwan/fzf-lua",
+    "aaronhallaert/advanced-git-search.nvim",
     lazy = false,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    opts = {},
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+      "tpope/vim-fugitive",
+    },
     config = function()
-      require "configs.fzf-lua"
+      require("telescope").setup {
+        extensions = {
+          advanced_git_search = {
+            keymaps = {
+              copy_commit_patch = "<C-x>",
+            },
+          },
+        },
+      }
+      require("telescope").load_extension "advanced_git_search"
     end,
   },
   {
