@@ -12,9 +12,11 @@ require("telescope").setup {
   },
   extensions = {
     advanced_git_search = {
+      git_diff_flags = { "--stat" },
       keymaps = {
         copy_commit_patch = "<C-x>",
       },
     },
   },
 }
+
