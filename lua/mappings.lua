@@ -34,7 +34,7 @@ map("n", "[g", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Previous Hunk" })
 map("n", "<leader>gg", "<cmd>Git<CR>", { desc = "Git status" })
 map("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git vsplit" })
 map("n", "<leader>gvd", "<cmd>Gvdiffsplit!<CR>", { desc = "Git three vsplit" })
-map("n", "<leader>gl", "<cmd>0Gllog<CR>", { desc = "Git history of a file" })
+map("n", "<leader>gl", "<cmd>DiffviewFileHistory %<CR>", { desc = "Git history of a file" })
 
 -- telescope
 map("n", "<leader>fs", grep_cword, { desc = "Search word under cursor" })

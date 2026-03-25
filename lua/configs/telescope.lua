@@ -12,6 +12,7 @@ require("telescope").setup {
   },
   extensions = {
     advanced_git_search = {
+      diff_plugin = "diffview",
       git_diff_flags = { "--stat" },
       keymaps = {
         copy_commit_patch = "<C-x>",

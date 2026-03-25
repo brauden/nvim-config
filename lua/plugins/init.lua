@@ -149,6 +149,10 @@ return {
     lazy = false,
   },
   {
+    "sindrets/diffview.nvim",
+    lazy = false,
+  },
+  {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
     config = true,
