@@ -135,15 +135,7 @@ return {
       "tpope/vim-fugitive",
     },
     config = function()
-      require("telescope").setup {
-        extensions = {
-          advanced_git_search = {
-            keymaps = {
-              copy_commit_patch = "<C-x>",
-            },
-          },
-        },
-      }
+      require "configs.telescope"
       require("telescope").load_extension "advanced_git_search"
     end,
   },
