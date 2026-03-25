@@ -138,10 +138,15 @@ return {
       require "configs.telescope"
       require("telescope").load_extension "advanced_git_search"
       require("telescope").load_extension "zoxide"
+      require("telescope").load_extension "live_grep_args"
     end,
   },
   {
     "jvgrootveld/telescope-zoxide",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+  },
+  {
+    "nvim-telescope/telescope-live-grep-args.nvim",
     dependencies = { "nvim-telescope/telescope.nvim" },
   },
   {

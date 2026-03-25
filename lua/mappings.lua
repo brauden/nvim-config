@@ -53,6 +53,7 @@ map("n", "<leader>fu", "<cmd>Telescope zoxide list<CR>", { desc = "Zoxide direct
 map("n", "<leader>fh", "<cmd>Telescope command_history <CR>", { desc = "Command history" })
 map("n", "<leader>fj", "<cmd>Telescope jumplist <CR>", { desc = "Jumplist" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics <CR>", { desc = "Diagnostics" })
+map("n", "<leader>fw", "<cmd>Telescope live_grep_args<CR>", { desc = "Live grep with args" })
 
 -- zenmode
 map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle Zen Mode" })
