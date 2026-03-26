@@ -121,6 +121,11 @@ return {
     lazy = false,
   },
   {
+    "tpope/vim-rhubarb",
+    dependencies = { "tpope/vim-fugitive" },
+    lazy = false,
+  },
+  {
     "shumphrey/fugitive-gitlab.vim",
     dependencies = { "tpope/vim-fugitive" },
     lazy = false,
