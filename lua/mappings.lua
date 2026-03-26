@@ -1,13 +1,6 @@
 require "nvchad.mappings"
 
-local telescopebuiltin = require "telescope.builtin"
-
--- Define a function to grep for the word under the cursor
-local function grep_cword()
-  -- <cword> expands to the word under the cursor
-  local word = vim.fn.expand "<cword>"
-  telescopebuiltin.grep_string { search = word }
-end
+local live_grep_args_shortcuts = require "telescope-live-grep-args.shortcuts"
 
 local map = vim.keymap.set
 
@@ -48,7 +41,7 @@ map(
 )
 map("n", "<leader>glf", "<cmd>Telescope advanced_git_search diff_commit_file<CR>", { desc = "Diff commit file" })
 map("n", "<leader>glb", "<cmd>Telescope advanced_git_search diff_branch_file<CR>", { desc = "Diff branch file" })
-map("n", "<leader>fs", grep_cword, { desc = "Search word under cursor" })
+map("n", "<leader>fs", live_grep_args_shortcuts.grep_word_under_cursor, { desc = "Search word under cursor" })
 map("n", "<leader>fu", "<cmd>Telescope zoxide list<CR>", { desc = "Zoxide directories" })
 map("n", "<leader>fh", "<cmd>Telescope command_history <CR>", { desc = "Command history" })
 map("n", "<leader>fj", "<cmd>Telescope jumplist <CR>", { desc = "Jumplist" })

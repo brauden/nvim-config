@@ -121,6 +121,17 @@ return {
     lazy = false,
   },
   {
+    "shumphrey/fugitive-gitlab.vim",
+    dependencies = { "tpope/vim-fugitive" },
+    lazy = false,
+    config = function()
+      vim.g.fugitive_gitlab_domains = {
+        ["gitlab.oit.duke.edu"] = "https://gitlab.oit.duke.edu",
+        ["git-internal.oit.duke.edu"] = "https://git-internal.oit.duke.edu",
+      }
+    end,
+  },
+  {
     "gelguy/wilder.nvim",
     event = "CmdlineEnter",
     config = function()
