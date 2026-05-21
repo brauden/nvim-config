@@ -137,13 +137,6 @@ return {
     end,
   },
   {
-    "gelguy/wilder.nvim",
-    event = "CmdlineEnter",
-    config = function()
-      require "configs.wilder"
-    end,
-  },
-  {
     "aaronhallaert/advanced-git-search.nvim",
     lazy = false,
     dependencies = {
