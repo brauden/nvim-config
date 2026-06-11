@@ -47,6 +47,7 @@ map("n", "<leader>fh", "<cmd>Telescope command_history <CR>", { desc = "Command 
 map("n", "<leader>fj", "<cmd>Telescope jumplist <CR>", { desc = "Jumplist" })
 map("n", "<leader>fd", "<cmd>Telescope diagnostics <CR>", { desc = "Diagnostics" })
 map("n", "<leader>fw", "<cmd>Telescope live_grep_args<CR>", { desc = "Live grep with args" })
+map("n", "<leader>fl", "<cmd>Telescope lsp_document_symbols<CR>", { desc = "LSP document symbols" })
 
 -- zenmode
 map("n", "<leader>z", "<cmd>ZenMode<CR>", { desc = "Toggle Zen Mode" })
