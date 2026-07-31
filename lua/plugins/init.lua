@@ -15,8 +15,12 @@ return {
     end,
   },
 
+  -- mason.nvim itself is declared by NvChad (mason-org/mason.nvim); it has no
+  -- ensure_installed option, so the tool list lives in mason-tool-installer.
   {
-    "williamboman/mason.nvim",
+    "WhoIsSethDaniel/mason-tool-installer.nvim",
+    dependencies = { "mason-org/mason.nvim" },
+    event = "VeryLazy",
     opts = {
       ensure_installed = {
         "lua-language-server",
@@ -29,9 +33,10 @@ return {
         "clangd",
         "clang-format",
         "codelldb",
-        "ruff",
+        -- ruff intentionally omitted: installed globally via `uv tool install ruff`.
         "gopls",
       },
+      run_on_start = true,
     },
   },
 

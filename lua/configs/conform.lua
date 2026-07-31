@@ -1,32 +1,26 @@
-local uv_ruff = "/Users/db393/.local/bin/ruff"
+-- ruff is installed globally via `uv tool install ruff`; uv links executables into ~/.local/bin.
+-- Point at it explicitly rather than using bare "ruff" so this can't resolve to a Mason copy --
+-- NvChad prepends Mason's bin dir to vim.env.PATH.
+local uv_ruff = vim.fn.expand "~/.local/bin/ruff"
+
 local options = {
   formatters_by_ft = {
     lua = { "stylua" },
-    python = { "uv_ruff_fix", "uv_ruff_format", "uv_isort" },
+    python = { "ruff_fix", "ruff_organize_imports", "ruff_format" },
     css = { "prettier" },
     html = { "prettier" },
   },
 
+  -- Reuse conform's built-in ruff formatters and override only the binary. They already pass
+  -- --exit-zero (so remaining unfixable lints don't abort the chain), --force-exclude, --no-cache,
+  -- and resolve cwd to the nearest pyproject.toml/ruff.toml so per-project ruff config applies.
   formatters = {
-    uv_ruff_fix = {
-      command = uv_ruff,
-      args = { "check", "--fix", "--stdin-filename", "$FILENAME" },
-      stdin = true,
-    },
-
-    uv_ruff_format = {
-      command = uv_ruff,
-      args = { "format", "-", "--stdin-filename", "$FILENAME" },
-      stdin = true,
-    },
-
-    uv_isort = {
-      command = uv_ruff,
-      args = { "check", "--fix", "--select", "I", "--stdin-filename", "$FILENAME" },
-      stdin = true,
-    },
+    ruff_fix = { command = uv_ruff },
+    ruff_organize_imports = { command = uv_ruff },
+    ruff_format = { command = uv_ruff },
   },
 
-  format_on_save = { timeout_ms = 500, lsp_format = "fallback" },
+  format_on_save = { timeout_ms = 2000, lsp_format = "fallback" },
 }
+
 require("conform").setup(options)
