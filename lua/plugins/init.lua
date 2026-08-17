@@ -91,16 +91,6 @@ return {
     config = true,
   },
   {
-    "epwalsh/obsidian.nvim",
-    version = "*", -- recommended, use latest release instead of latest commit
-    lazy = true,
-    ft = "markdown",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    opts = require "configs.obsidian",
-  },
-  {
     "selimacerbas/markdown-preview.nvim",
     ft = "markdown",
     dependencies = { "selimacerbas/live-server.nvim" },
