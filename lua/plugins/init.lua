@@ -183,4 +183,5 @@ return {
     end,
   },
   require "configs.flash",
+  require "configs.window-picker",
 }
