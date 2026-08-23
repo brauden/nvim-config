@@ -59,6 +59,9 @@ map("n", "<leader>ldo", "<cmd> lua vim.diagnostic.config{virtual_text = false}<C
 -- spell
 map("n", "<leader>ts", "<cmd>set invspell<cr>", { desc = "Toggle spell" })
 
+-- scrollbind
+map("n", "<leader>tb", "<cmd>set scrollbind!<cr>", { desc = "Toggle scrollbind" })
+
 -- pandoc
 map("v", "<leader>mt", "!pandoc -t markdown-simple_tables<CR>", { desc = "Format MD table" })
 
