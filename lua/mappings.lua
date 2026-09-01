@@ -96,6 +96,9 @@ map("n", "<leader>rr", "<cmd>set keymap=russian-jcukenwin<CR>", { desc = "Russia
 map("n", "<leader>rk", "<cmd>set keymap=kazakh-jcuken<CR>", { desc = "Kazakh Keyboard" })
 map("n", "<leader>re", '<cmd>set keymap=""<CR>', { desc = "English Keyboard" })
 
+-- markdown
+map("n", "<leader>mp", "<cmd>MarkdownPreview<CR>", { desc = "MarkdownPreview" })
+
 -- tmux-mapping
 map("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", { silent = true })
 map("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", { silent = true })
@@ -106,6 +109,3 @@ map("n", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { silent = true })
 map("t", "<C-j>", [[<C-\><C-n>]])
 map("t", "<C-h>", [[<Cmd>wincmd h<CR>]])
 map("t", "<C-l>", [[<Cmd>wincmd l<CR>]])
-
-map("n", "<leader>nn", "<cmd>bnext<CR>", { desc = "Next buffer" })
-map("n", "<leader>np", "<cmd>bprev<CR>", { desc = "Previous buffer" })
