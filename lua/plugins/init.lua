@@ -182,6 +182,15 @@ return {
       require "configs.iron"
     end,
   },
+  {
+    "folke/which-key.nvim",
+    opts = {
+      -- only pop up after a 2s pause; plugin views (marks, registers) stay instant
+      delay = function(ctx)
+        return ctx.plugin and 0 or 2000
+      end,
+    },
+  },
   require "configs.flash",
   require "configs.window-picker",
 }
