@@ -187,7 +187,7 @@ return {
     opts = {
       -- only pop up after a 2s pause; plugin views (marks, registers) stay instant
       delay = function(ctx)
-        return ctx.plugin and 0 or 2000
+        return ctx.plugin and 0 or 1000
       end,
     },
   },
