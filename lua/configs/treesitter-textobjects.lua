@@ -40,29 +40,29 @@ map({ "x", "o" }, "as", function()
   ts_select.select_textobject("@local.scope", "locals")
 end, { desc = "Select language scope" })
 
-map({ "x", "o" }, "l=", function()
+map({ "x", "o" }, "il", function()
   ts_select.select_textobject("@assignment.lhs", "textobjects")
 end, { desc = "Select left hand side of an assignment" })
 
-map({ "x", "o" }, "r=", function()
+map({ "x", "o" }, "ir", function()
   ts_select.select_textobject("@assignment.rhs", "textobjects")
 end, { desc = "Select right hand side of an assignment" })
 
 -- Swap keymaps
 map("n", "<leader>nf", function()
-  ts_swap.swap_next("@function.outer")
+  ts_swap.swap_next "@function.outer"
 end, { desc = "Swap next function" })
 
 map("n", "<leader>nc", function()
-  ts_swap.swap_next("@class.outer")
+  ts_swap.swap_next "@class.outer"
 end, { desc = "Swap next class" })
 
 map("n", "<leader>pf", function()
-  ts_swap.swap_previous("@function.outer")
+  ts_swap.swap_previous "@function.outer"
 end, { desc = "Swap previous function" })
 
 map("n", "<leader>pc", function()
-  ts_swap.swap_previous("@class.outer")
+  ts_swap.swap_previous "@class.outer"
 end, { desc = "Swap previous class" })
 
 -- Move keymaps: goto_next_start
