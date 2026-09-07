@@ -98,6 +98,7 @@ map("n", "<leader>re", '<cmd>set keymap=""<CR>', { desc = "English Keyboard" })
 
 -- markdown
 map("n", "<leader>mp", "<cmd>MarkdownPreview<CR>", { desc = "MarkdownPreview" })
+map("n", "<leader>mt", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle RenderMarkdown" })
 
 -- tmux-mapping
 map("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", { silent = true })
