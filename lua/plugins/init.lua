@@ -169,6 +169,36 @@ return {
     },
   },
   {
+    -- Loaded eagerly on purpose: `image` is wired up on BufReadPre, so Snacks.setup()
+    -- has to have run before the first buffer is read. Under NvChad's
+    -- `defaults = { lazy = true }` snacks would otherwise only load via claudecode's keys.
+    "folke/snacks.nvim",
+    lazy = false,
+    priority = 1000,
+    ---@type snacks.Config
+    opts = {
+      -- Only keys present here get enabled, so this turns on the image module alone.
+      -- Needs: kitty/ghostty (kitty graphics protocol), `magick`, and `tectonic` for math.
+      image = {
+        doc = {
+          inline = true, -- render in the buffer; falls back to `float` if unsupported
+          max_width = 60,
+          max_height = 30,
+        },
+        math = {
+          enabled = true,
+          latex = {
+            -- ~40% smaller than the default "Large": display size is DPI-normalized,
+            -- so the font size is the knob here, not `convert.magick.math` density.
+            font_size = "footnotesize",
+            -- doc packages are automatic for .tex; markdown needs them listed here
+            packages = { "amsmath", "amssymb", "amsfonts", "amscd", "mathtools" },
+          },
+        },
+      },
+    },
+  },
+  {
     "coder/claudecode.nvim",
     dependencies = { "folke/snacks.nvim" },
     config = true,
@@ -193,4 +223,19 @@ return {
   },
   require "configs.flash",
   require "configs.window-picker",
+  {
+    "MeanderingProgrammer/render-markdown.nvim",
+    -- NvChad sets `defaults = { lazy = true }`, so a spec with no trigger never loads
+    ft = { "markdown" },
+    -- dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the mini.nvim suite
+    -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+    ---@module 'render-markdown'
+    ---@type render.md.UserConfig
+    opts = {
+      -- snacks.image renders math as real images; this module would draw a
+      -- unicode approximation of the same formulas on top of it.
+      latex = { enabled = false },
+    },
+  },
 }

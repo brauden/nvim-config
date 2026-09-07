@@ -21,6 +21,8 @@ local ensure_installed = {
   "go",
   "html",
   "json",
+  -- snacks.image finds `$...$` math in markdown through the latex injection
+  "latex",
   "lua",
   "markdown",
   "markdown_inline",
