@@ -100,11 +100,17 @@ map("n", "<leader>re", '<cmd>set keymap=""<CR>', { desc = "English Keyboard" })
 map("n", "<leader>mp", "<cmd>MarkdownPreview<CR>", { desc = "MarkdownPreview" })
 map("n", "<leader>mt", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle RenderMarkdown" })
 
+-- window navigation: stays inside nvim, never falls through to tmux
+map("n", "<C-h>", "<Cmd>wincmd h<CR>", { silent = true })
+map("n", "<C-j>", "<Cmd>wincmd j<CR>", { silent = true })
+map("n", "<C-k>", "<Cmd>wincmd k<CR>", { silent = true })
+map("n", "<C-l>", "<Cmd>wincmd l<CR>", { silent = true })
+
 -- tmux-mapping
-map("n", "<C-h>", "<Cmd>TmuxNavigateLeft<CR>", { silent = true })
-map("n", "<C-j>", "<Cmd>TmuxNavigateDown<CR>", { silent = true })
-map("n", "<C-k>", "<Cmd>TmuxNavigateUp<CR>", { silent = true })
-map("n", "<C-l>", "<Cmd>TmuxNavigateRight<CR>", { silent = true })
+map("n", "<M-h>", "<Cmd>TmuxNavigateLeft<CR>", { silent = true })
+map("n", "<M-j>", "<Cmd>TmuxNavigateDown<CR>", { silent = true })
+map("n", "<M-k>", "<Cmd>TmuxNavigateUp<CR>", { silent = true })
+map("n", "<M-l>", "<Cmd>TmuxNavigateRight<CR>", { silent = true })
 map("n", "<C-\\>", "<Cmd>TmuxNavigatePrevious<CR>", { silent = true })
 
 map("t", "<C-j>", [[<C-\><C-n>]])
