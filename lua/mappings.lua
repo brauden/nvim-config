@@ -91,6 +91,10 @@ nomap("i", "<C-k>")
 nomap("n", "<leader>n")
 nomap("n", "<Tab>")
 
+-- buffer cycling: use tabufline order (skips hidden/unnamed buffers) instead of :bnext/:bprevious
+map("n", "]b", function() require("nvchad.tabufline").next() end, { desc = "Next buffer" })
+map("n", "[b", function() require("nvchad.tabufline").prev() end, { desc = "Prev buffer" })
+
 -- switch languages
 map("n", "<leader>rr", "<cmd>set keymap=russian-jcukenwin<CR>", { desc = "Russian Keyboard" })
 map("n", "<leader>rk", "<cmd>set keymap=kazakh-jcuken<CR>", { desc = "Kazakh Keyboard" })
