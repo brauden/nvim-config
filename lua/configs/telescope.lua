@@ -76,11 +76,17 @@ local function case_aware_fzy()
   }, { __index = fzy })
 end
 
+-- <C-t> sends the results (or the <Tab>-selected ones) to trouble. Required on
+-- press so trouble stays lazy-loaded; this replaces telescope's "open in tab".
+local function open_trouble(prompt_bufnr)
+  require("trouble.sources.telescope").open(prompt_bufnr)
+end
+
 require("telescope").setup {
   defaults = {
     mappings = {
-      i = { ["<CR>"] = open_multi },
-      n = { ["<CR>"] = open_multi },
+      i = { ["<CR>"] = open_multi, ["<C-t>"] = open_trouble },
+      n = { ["<CR>"] = open_multi, ["<C-t>"] = open_trouble },
     },
   },
   pickers = {

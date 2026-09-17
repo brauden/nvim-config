@@ -238,4 +238,5 @@ return {
       latex = { enabled = false },
     },
   },
+  require "configs.trouble",
 }
