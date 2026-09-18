@@ -1,4 +1,5 @@
 require "nvchad.options"
+require("configs.term-colors").setup()
 
 vim.wo.relativenumber = true
 vim.opt.colorcolumn = "80"

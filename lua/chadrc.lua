@@ -39,6 +39,11 @@ M.ui = {
 }
 
 M.term = {
+  -- use the kitty/dracula palette from configs.term-colors instead of onedark
+  base46_colors = false,
+  winopts = {
+    winhighlight = "Normal:TermNormal,NormalFloat:TermNormal,FloatBorder:TermBorder,Visual:TermVisual",
+  },
   float = {
     row = 0.1,
     col = 0.1,
