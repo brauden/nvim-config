@@ -101,7 +101,7 @@ map("n", "<leader>rk", "<cmd>set keymap=kazakh-jcuken<CR>", { desc = "Kazakh Key
 map("n", "<leader>re", '<cmd>set keymap=""<CR>', { desc = "English Keyboard" })
 
 -- markdown
-map("n", "<leader>mp", "<cmd>MarkdownPreview<CR>", { desc = "MarkdownPreview" })
+map("n", "<leader>mp", "<cmd>MdKite start<CR>", { desc = "Markdown preview" })
 map("n", "<leader>mt", "<cmd>RenderMarkdown toggle<CR>", { desc = "Toggle RenderMarkdown" })
 
 -- window navigation: stays inside nvim, never falls through to tmux

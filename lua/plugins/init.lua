@@ -91,11 +91,11 @@ return {
     config = true,
   },
   {
-    "selimacerbas/markdown-preview.nvim",
+    "selimacerbas/mdkite.nvim",
     ft = "markdown",
-    dependencies = { "selimacerbas/live-server.nvim" },
+    dependencies = { "selimacerbas/kitehost.nvim" },
     config = function()
-      require("markdown_preview").setup {
+      require("mdkite").setup {
         port = 8421,
         open_browser = true,
         debounce_ms = 300,
