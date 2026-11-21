@@ -199,13 +199,6 @@ return {
     },
   },
   {
-    "coder/claudecode.nvim",
-    dependencies = { "folke/snacks.nvim" },
-    config = true,
-    keys = require("configs.claudecode").keys,
-    opts = require("configs.claudecode").opts,
-  },
-  {
     "Vigemus/iron.nvim",
     ft = { "python" },
     config = function()
