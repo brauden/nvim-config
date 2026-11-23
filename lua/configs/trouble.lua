@@ -36,10 +36,10 @@ return {
       -- outline of the whole file: a third of the screen on the left fits far more
       -- entries than trouble's default 10-line bottom split
       symbols = {
-        win = { position = "left", size = 0.33 },
+        win = { position = "left", size = 0.4 },
       },
       lsp = {
-        win = { position = "left", size = 0.33 },
+        win = { position = "left", size = 0.4 },
       },
     },
   },
