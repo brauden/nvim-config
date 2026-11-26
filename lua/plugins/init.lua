@@ -161,6 +161,8 @@ return {
     "sindrets/diffview.nvim",
     lazy = false,
     opts = {
+      -- Show deletions in the left pane in red rather than as plain filler
+      enhanced_diff_hl = true,
       view = {
         merge_tool = {
           layout = "diff3_mixed",
