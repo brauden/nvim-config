@@ -234,4 +234,18 @@ return {
     },
   },
   require "configs.trouble",
+  -- replaced by oil; NvChad declares it, so disable rather than delete
+  { "nvim-tree/nvim-tree.lua", enabled = false },
+  {
+    "stevearc/oil.nvim",
+    -- oil's docs advise against lazy-loading: it must hijack `nvim .` / `:e dir`
+    lazy = false,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = { { "-", "<cmd>Oil<cr>", desc = "Open parent directory (oil)" } },
+    -- dired-style listing, like `ls -al`
+    opts = {
+      columns = { "permissions", "size", "mtime", "icon" },
+      view_options = { show_hidden = true },
+    },
+  },
 }
