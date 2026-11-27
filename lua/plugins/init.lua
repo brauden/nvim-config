@@ -246,6 +246,8 @@ return {
     opts = {
       columns = { "permissions", "size", "mtime", "icon" },
       view_options = { show_hidden = true },
+      -- <C-c> is too easy to hit by accident
+      keymaps = { ["<C-c>"] = false, ["q"] = { "actions.close", mode = "n" } },
     },
   },
 }
